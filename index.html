@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Productivity Toolkit</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<h1>🎓 Student Productivity Toolkit</h1>
+<p>All Useful Student Tools in One Website</p>
+</header>
+
+<div class="container">
+
+<!-- ROW 1 -->
+<div class="tool">
+<h2><i class="fa fa-qrcode"></i> QR Generator</h2>
+<input type="text" id="qrText" placeholder="Enter text or URL">
+<button onclick="generateQR()">Generate QR</button>
+<div id="qrCode"></div>
+<button onclick="downloadQR()">Download QR</button>
+</div>
+
+<div class="tool">
+<h2><i class="fa fa-image"></i> Image Compressor</h2>
+<input type="file" id="imageInput">
+<img id="preview">
+<p id="imageInfo"></p>
+<button onclick="compressImage()">Compress</button>
+<a id="downloadLink" download="compressed.jpg">Download</a>
+</div>
+
+<div class="tool">
+<h2><i class="fa fa-file"></i> Notes</h2>
+<textarea id="noteText" placeholder="Type here..."></textarea>
+<button onclick="saveNotes()">Save</button>
+<button onclick="downloadPDF()">Download PDF</button>
+</div>
+
+<!-- ROW 2 -->
+<div class="tool">
+<h2>📚 Study Planner</h2>
+<input type="text" id="subject" placeholder="Enter Subject">
+<input type="date" id="examDate">
+<button onclick="generatePlan()">Generate Plan</button>
+<p id="planResult"></p>
+</div>
+
+<div class="tool">
+<h2>📝 To-Do Manager</h2>
+<input type="text" id="taskInput" placeholder="Add Task">
+<button onclick="addTask()">Add Task</button>
+<ul id="taskList"></ul>
+</div>
+
+<div class="tool">
+<h2>📊 Attendance Calculator</h2>
+<input type="number" id="totalClasses" placeholder="Total Classes">
+<input type="number" id="attendedClasses" placeholder="Attended Classes">
+<button onclick="calculateAttendance()">Calculate</button>
+<p id="attendanceResult"></p>
+</div>
+
+<!-- ROW 3 -->
+<div class="tool">
+<h2>🎓 CGPA Calculator</h2>
+<input type="number" id="gpa1" placeholder="Semester 1 GPA">
+<input type="number" id="gpa2" placeholder="Semester 2 GPA">
+<input type="number" id="gpa3" placeholder="Semester 3 GPA">
+<input type="number" id="gpa4" placeholder="Semester 4 GPA">
+<button onclick="calculateCGPA()">Calculate CGPA</button>
+<p id="cgpaResult"></p>
+</div>
+
+<div class="tool">
+<h2><i class="fa fa-ruler"></i> Unit Converter</h2>
+<input type="number" id="cm" placeholder="Centimeter">
+<button onclick="cmToInch()">Convert to Inch</button>
+<p id="inchResult"></p>
+
+<input type="number" id="kg" placeholder="Kilogram">
+<button onclick="kgToPound()">Convert to Pound</button>
+<p id="poundResult"></p>
+
+<input type="number" id="celsius" placeholder="Celsius">
+<button onclick="cToF()">Convert to Fahrenheit</button>
+<p id="fResult"></p>
+</div>
+
+<div class="tool">
+<h2><i class="fa fa-briefcase"></i> Career Interview Portal</h2>
+
+<select id="interviewType">
+<option value="">Select Domain</option>
+<option value="fullstack">Full Stack Developer</option>
+<option value="frontend">Frontend Developer</option>
+<option value="backend">Backend Developer</option>
+<option value="java">Java Developer</option>
+<option value="python">Python Developer</option>
+<option value="cyber">Cyber Security</option>
+<option value="datascience">Data Science</option>
+<option value="aiml">AI / ML Engineer</option>
+<option value="devops">DevOps Engineer</option>
+<option value="cloud">Cloud Engineer</option>
+<option value="mobile">Mobile App Developer</option>
+<option value="uiux">UI/UX Designer</option>
+<option value="banking">Banking</option>
+<option value="govt">Government Exams</option>
+<option value="mba">MBA / Management</option>
+<option value="marketing">Digital Marketing</option>
+<option value="ba">Business Analyst</option>
+</select>
+
+<button onclick="generateInterviewQuestions()">Generate Top Questions</button>
+<button onclick="downloadAllQuestionsPDF()">Download All Questions PDF</button>
+
+<ul id="questionBox"></ul>
+</div>
+
+
+
+</div>
+
+<footer>
+<p>Created by Krishna | Mini Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
